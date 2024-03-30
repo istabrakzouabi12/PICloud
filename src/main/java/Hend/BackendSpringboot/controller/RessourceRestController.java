@@ -35,8 +35,8 @@ public class RessourceRestController {
     }
 
 
-    // http://localhost:8089/csers/ressource/archiver-ressource/8
-    @GetMapping("/archive-ressource/{ressource-id}")
+    // http://localhost:8089/csers/ressource/archive-ressource/8
+    @PutMapping ("/archive-ressource/{ressource-id}")
     public Ressource archiveRessource(@PathVariable("ressource-id") Long ressourceId) {
         Ressource ressource = ressourceService.archiveRessource(ressourceId);
         return ressource;

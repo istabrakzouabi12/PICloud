@@ -1,5 +1,6 @@
 package Hend.BackendSpringboot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class EquipeIntervention {
     @OneToMany(mappedBy = "equipeIntervention", cascade = CascadeType.ALL)
     private List<Membre> membres;
 
+  // @JsonIgnore
     @OneToMany(mappedBy = "equipeIntervention", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 

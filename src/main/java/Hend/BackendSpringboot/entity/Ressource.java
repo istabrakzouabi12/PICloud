@@ -1,5 +1,6 @@
 package Hend.BackendSpringboot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,6 +38,7 @@ public class Ressource {
     @Column(name = "total_quantite")
     private int totalQuantite;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "ressource", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 

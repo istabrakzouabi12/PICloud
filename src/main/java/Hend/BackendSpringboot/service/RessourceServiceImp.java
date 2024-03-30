@@ -49,7 +49,7 @@ public class RessourceServiceImp implements IRessourceService {
 
         List<Ressource> allRessources= ressourceRepository.findAll();
         for (Ressource re : allRessources) {
-            if (re.getNomRessource()==r.getNomRessource())
+            if (re.getNomRessource().equals(r.getNomRessource()))
             {
                 System.out.println("nom existant");
                 throw new RuntimeException("nom existant") ;
@@ -66,14 +66,10 @@ public class RessourceServiceImp implements IRessourceService {
 
     @Override
     public Ressource archiveRessource(Long ressourceId) {
-       Ressource r = ressourceRepository.findById(ressourceId).get();
-        if (r.isArchive()) {
-            r.setArchive(true);
-        }else
-        {
-            r.setArchive(false);
-        }
-        return r;
+        Ressource r = ressourceRepository.findById(ressourceId).get();
+        r.setArchive(!r.isArchive());
+
+        return ressourceRepository.save(r);
     }
 
     @Override
